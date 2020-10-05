@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "instagram_clone-tvOS.app"
-               BlueprintName = "instagram_clone-tvOS"
-               ReferencedContainer = "container:instagram_clone.xcodeproj">
+               BuildableName = "lambe_lambe-tvOS.app"
+               BlueprintName = "lambe_lambe-tvOS"
+               ReferencedContainer = "container:lambe_lambe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "instagram_clone-tvOSTests.xctest"
-               BlueprintName = "instagram_clone-tvOSTests"
-               ReferencedContainer = "container:instagram_clone.xcodeproj">
+               BuildableName = "lambe_lambe-tvOSTests.xctest"
+               BlueprintName = "lambe_lambe-tvOSTests"
+               ReferencedContainer = "container:lambe_lambe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "instagram_clone-tvOS.app"
-            BlueprintName = "instagram_clone-tvOS"
-            ReferencedContainer = "container:instagram_clone.xcodeproj">
+            BuildableName = "lambe_lambe-tvOS.app"
+            BlueprintName = "lambe_lambe-tvOS"
+            ReferencedContainer = "container:lambe_lambe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "instagram_clone-tvOS.app"
-            BlueprintName = "instagram_clone-tvOS"
-            ReferencedContainer = "container:instagram_clone.xcodeproj">
+            BuildableName = "lambe_lambe-tvOS.app"
+            BlueprintName = "lambe_lambe-tvOS"
+            ReferencedContainer = "container:lambe_lambe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

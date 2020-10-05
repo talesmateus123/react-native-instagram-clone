@@ -3,12 +3,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'instagram_clone' do
+target 'lambe_lambe' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'instagram_cloneTests' do
+  target 'lambe_lambeTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,10 +23,10 @@ target 'instagram_clone' do
   end
 end
 
-target 'instagram_clone-tvOS' do
-  # Pods for instagram_clone-tvOS
+target 'lambe_lambe-tvOS' do
+  # Pods for lambe_lambe-tvOS
 
-  target 'instagram_clone-tvOSTests' do
+  target 'lambe_lambe-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

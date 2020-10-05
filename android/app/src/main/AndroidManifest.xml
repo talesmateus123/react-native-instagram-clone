@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.instagram_clone">
+  package="com.lambe_lambe">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
