@@ -1,44 +1,46 @@
 import React, { Component } from 'react'
 import {
-  View, Text, StyleSheet,
+  View, Text, TextInput, StyleSheet,
   TouchableOpacity
 } from 'react-native'
-import { TextInput } from 'react-native-gesture-handler'
 
-class Login extends Component {
+class Register extends Component {
 
     state = {
+        name: '',
         email: '',
         password: ''
     }
 
-    login = () => {
-        this.props.navigation.navigate('Profile')
-    }
-
     render() {
+        const options = {
+            email: 'email@email.com', secure: true
+        }
         return (
             <View style={styles.container}>
-                <TextInput
-                    placeholder="E-mail"
+                <TextInput 
+                    placeholder="Nome"
                     style={styles.input}
                     autoFocus={true}
-                    keyboardType="email-address"
+                    value={this.state.name}
+                    onChangeText={name => this.setState({ name })}
+                />
+                <TextInput 
+                    placeholder="E-mail"
+                    style={styles.input}
                     value={this.state.email}
+                    keyboardType="email-address"
                     onChangeText={email => this.setState({ email })}
                 />
-                <TextInput
+                <TextInput 
                     placeholder="Senha"
                     style={styles.input}
-                    secureTextEntry={true}
                     value={this.state.password}
+                    secureTextEntry={true}
                     onChangeText={password => this.setState({ password })}
                 />
-                <TouchableOpacity onPress={this.login} style={styles.button}>
-                    <Text style={styles.buttonText}>Entrar</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => {this.props.navigation.navigate('Register')}} style={styles.button}>
-                    <Text style={styles.buttonText}>Criar nova conta</Text>
+                <TouchableOpacity onPress={() => {}} style={styles.button}>
+                    <Text style={styles.buttonText}>Salvar</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     button: {
         marginTop: 30,
@@ -67,8 +69,8 @@ const styles = StyleSheet.create({
         height: 40,
         borderWidth: 1,
         borderColor: '#333',
+        paddingLeft: 15
     }
 })
 
-
-export default Login
+export default Register

@@ -5,25 +5,31 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-import Feed from './screens/Feed'
-import AddPhoto from './screens/AddPhoto'
-import Profile from './screens/Profile'
-import Login from './screens/Login'
+import Feed from './src/screens/Feed'
+import AddPhoto from './src/screens/AddPhoto'
+import Profile from './src/screens/Profile'
+import Login from './src/screens/Login'
+import Register from './src/screens/Register'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
 
-const isLoggedIn = true
+const authRouter = () => (
+    <Stack.Navigator
+        initialRouteName='Login'
+    >
+        <Stack.Screen name="Login" component={Login} options={{ title: 'Login' }} />
+        <Stack.Screen name="Register" component={Register} options={{ title: 'Registrar' }} />
+    </Stack.Navigator>
+)
 
-const Stacks = () => (
+const loginOrProfileRouter = () => (
     <Stack.Navigator
         initialRouteName='Profile'
-        screenOptions={{
-            headerShown: false
-        }}
+        screenOptions={{ headerShown: false }}
     >
         <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Auth" component={Login} />
+        <Stack.Screen name="Auth" component={authRouter} />
     </Stack.Navigator>
 )
 
@@ -40,7 +46,6 @@ const Tabs = () => (
             component={Feed}
             options={{
                 tabBarLabel: 'Home',
-
                 tabBarIcon: ({ tintColor }) => <Icon name="home" size={30} color={ tintColor } />
             }}
         />
@@ -54,7 +59,7 @@ const Tabs = () => (
         />
         <Tab.Screen
             name="Profile"
-            component={Stacks}
+            component={loginOrProfileRouter}
             options={{
                 tabBarLabel: 'Profile',
                 tabBarIcon: ({ tintColor }) => <Icon name="user" size={30} color={ tintColor } />
@@ -63,8 +68,10 @@ const Tabs = () => (
     </Tab.Navigator>
 )
 
-export default () => (
+const AppContainer = () => (
     <NavigationContainer>
         <Tabs />
     </NavigationContainer>
 )
+
+export default AppContainer
