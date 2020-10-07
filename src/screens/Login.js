@@ -1,18 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, useReducer } from 'react'
+import { connect } from 'react-redux'
+import { login } from '../store/actions/user'
 import {
   View, Text, StyleSheet,
-  TouchableOpacity
+  TouchableOpacity, TextInput
 } from 'react-native'
-import { TextInput } from 'react-native-gesture-handler'
 
 class Login extends Component {
 
     state = {
+        name: 'Temporary',
         email: '',
         password: ''
     }
 
     login = () => {
+        this.props.onLogin({ ...this.state })
         this.props.navigation.navigate('Profile')
     }
 
@@ -70,5 +73,11 @@ const styles = StyleSheet.create({
     }
 })
 
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogin: user => dispatch(login(user)),
 
-export default Login
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

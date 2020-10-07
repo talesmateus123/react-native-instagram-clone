@@ -25,7 +25,7 @@ const authRouter = () => (
 
 const loginOrProfileRouter = () => (
     <Stack.Navigator
-        initialRouteName='Profile'
+        initialRouteName='Auth'
         screenOptions={{ headerShown: false }}
     >
         <Stack.Screen name="Profile" component={Profile} />
