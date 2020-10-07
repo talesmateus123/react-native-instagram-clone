@@ -11,7 +11,7 @@ class Profile extends Component {
     }
 
     logout = () => {
-
+        this.props.navigation.navigate('Auth')
     }
 
     render() {
@@ -19,14 +19,14 @@ class Profile extends Component {
             email: 'email@email.com', secure: true
         }
         return (
-                <View style={styles.container}>
-                    <Gravatar options={options} style={styles.avatar} />
-                    <Text style={styles.nickname}>Fulano</Text>
-                    <Text style={styles.email}>email@email.com</Text>
-                    <TouchableOpacity onPress={this.logout} style={styles.button}>
-                        <Text style={styles.buttonText}>Sair</Text>
-                    </TouchableOpacity>
-                </View>
+            <View style={styles.container}>
+                <Gravatar options={options} style={styles.avatar} />
+                <Text style={styles.nickname}>Fulano</Text>
+                <Text style={styles.email}>email@email.com</Text>
+                <TouchableOpacity onPress={this.logout} style={styles.button}>
+                    <Text style={styles.buttonText}>Sair</Text>
+                </TouchableOpacity>
+            </View>
         );
     }
 }

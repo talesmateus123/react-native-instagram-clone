@@ -2,13 +2,30 @@ import React from 'react'
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 import Feed from './screens/Feed'
 import AddPhoto from './screens/AddPhoto'
 import Profile from './screens/Profile'
+import Login from './screens/Login'
 
 const Tab = createBottomTabNavigator()
+const Stack = createStackNavigator()
+
+const isLoggedIn = true
+
+const Stacks = () => (
+    <Stack.Navigator
+        initialRouteName='Profile'
+        screenOptions={{
+            headerShown: false
+        }}
+    >
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Auth" component={Login} />
+    </Stack.Navigator>
+)
 
 const Tabs = () => (
     <Tab.Navigator
@@ -37,7 +54,7 @@ const Tabs = () => (
         />
         <Tab.Screen
             name="Profile"
-            component={Profile}
+            component={Stacks}
             options={{
                 tabBarLabel: 'Profile',
                 tabBarIcon: ({ tintColor }) => <Icon name="user" size={30} color={ tintColor } />
