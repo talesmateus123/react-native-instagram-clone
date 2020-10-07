@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 import Feed from './screens/Feed'
 import AddPhoto from './screens/AddPhoto'
+import Profile from './screens/Profile'
 
 const Tab = createBottomTabNavigator()
 
@@ -36,7 +37,7 @@ const Tabs = () => (
         />
         <Tab.Screen
             name="Profile"
-            component={Feed}
+            component={Profile}
             options={{
                 tabBarLabel: 'Profile',
                 tabBarIcon: ({ tintColor }) => <Icon name="user" size={30} color={ tintColor } />
