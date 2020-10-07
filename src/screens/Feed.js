@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   View, FlatList, StyleSheet,
-} from 'react-native';
+} from 'react-native'
 import Post from '../components/Post'
 import Header from '../components/Header'
 
