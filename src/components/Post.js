@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { 
     StyleSheet, View, Image, 
-    Dimensions 
+    Dimensions, Text
 } from 'react-native'
 
 import Author from './Author'
@@ -18,7 +18,8 @@ class Post extends Component {
                     email={this.props.email} 
                     nickname={this.props.nickname} />
                 <Comments comments={this.props.comments} />
-                <AddComment />
+                <AddComment postId={this.props.id} />
+                <Text>{JSON.stringify(this.props)}</Text>
             </View>
         )
     }
