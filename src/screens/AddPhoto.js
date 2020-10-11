@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { addPost } from '../store/actions/posts'
 import {
@@ -45,30 +45,34 @@ class AddPhoto extends Component {
         this.setState({ image: null, comment: '' })
         this.props.navigation.navigate('Feed')
     }
-
+    
     render() {
-        return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <Text style={styles.title}>Compartilhe uma imagem</Text>
-                    <View style={styles.imageContainer}>
-                        <Image source={this.state.image} style={styles.image}  />
-                    </View>
-                    <TouchableOpacity onPress={this.pickImage} style={styles.button}>
-                        <Text style={styles.buttonText}>Escolha a foto</Text>
-                    </TouchableOpacity>
-                    <TextInput 
-                        placeholder="Algum comentário para a foto?"
-                        style={styles.input}
-                        value={this.state.comment}
-                        onChangeText={comment => this.setState({ comment })}
-                    />
-                    <TouchableOpacity onPress={this.save} style={styles.button}>
-                        <Text style={styles.buttonText}>Salvar</Text>
-                    </TouchableOpacity>
+        const content = this.props.name ? (
+            <ScrollView style={styles.container}>
+                <Text style={styles.title}>Compartilhe uma imagem</Text>
+                <View style={styles.imageContainer}>
+                    <Image source={this.state.image} style={styles.image}  />
                 </View>
+                <TouchableOpacity onPress={this.pickImage} style={styles.button}>
+                    <Text style={styles.buttonText}>Escolha a foto</Text>
+                </TouchableOpacity>
+                <TextInput 
+                    placeholder="Algum comentário para a foto?"
+                    style={styles.input}
+                    value={this.state.comment}
+                    onChangeText={comment => this.setState({ comment })}
+                />
+                <TouchableOpacity onPress={this.save} style={styles.button}>
+                    <Text style={styles.buttonText}>Salvar</Text>
+                </TouchableOpacity>
             </ScrollView>
-        );
+        ) : 
+        (
+            <View style={styles.centralizedContainer}>
+                <Text style={styles.noUserText}>Você precisa estar logado para postar imagens</Text>
+            </View>
+        )
+        return content
     }
 }
 
@@ -76,6 +80,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center'
+    },
+    centralizedContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     title: {
         fontSize: 20,
@@ -108,6 +117,10 @@ const styles = StyleSheet.create({
     },
     buttonDisabled: {
         backgroundColor: '#AAA'
+    },
+    noUserText: {
+        fontSize: 20,
+        textAlign: 'center'
     }
 })
 

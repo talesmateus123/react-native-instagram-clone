@@ -75,8 +75,7 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = dispatch => {
     return {
-        onLogin: user => dispatch(login(user)),
-
+        onLogin: user => dispatch(login(user))
     }
 }
 

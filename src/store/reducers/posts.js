@@ -1,4 +1,3 @@
-import { acc } from 'react-native-reanimated'
 import { ADD_POST, ADD_COMMENT } from '../actions/actionTypes'
 
 const initialState = {

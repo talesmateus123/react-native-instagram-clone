@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { 
     StyleSheet, View, Image, 
-    Dimensions, Text
+    Dimensions
 } from 'react-native'
 
 import Author from './Author'
@@ -11,6 +12,7 @@ import AddComment from './AddComment'
 class Post extends Component {
 
     render() {
+        const addComment = this.props.name ? <AddComment postId={this.props.id} /> : null
         return (
             <View style={styles.container}>
                 <Image source={this.props.image} style={styles.image} />
@@ -18,8 +20,7 @@ class Post extends Component {
                     email={this.props.email} 
                     nickname={this.props.nickname} />
                 <Comments comments={this.props.comments} />
-                <AddComment postId={this.props.id} />
-                <Text>{JSON.stringify(this.props)}</Text>
+                {addComment}
             </View>
         )
     }
@@ -36,4 +37,10 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Post
+const mapStateToProps = ({ user }) => {
+    return {
+        name: user.name
+    }
+}
+
+export default connect(mapStateToProps)(Post)
