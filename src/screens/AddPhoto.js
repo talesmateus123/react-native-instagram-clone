@@ -48,7 +48,7 @@ class AddPhoto extends Component {
     
     render() {
         const content = this.props.name ? (
-            <ScrollView style={styles.container}>
+            <View style={styles.container}>
                 <Text style={styles.title}>Compartilhe uma imagem</Text>
                 <View style={styles.imageContainer}>
                     <Image source={this.state.image} style={styles.image}  />
@@ -65,7 +65,7 @@ class AddPhoto extends Component {
                 <TouchableOpacity onPress={this.save} style={styles.button}>
                     <Text style={styles.buttonText}>Salvar</Text>
                 </TouchableOpacity>
-            </ScrollView>
+            </View>
         ) : 
         (
             <View style={styles.centralizedContainer}>
